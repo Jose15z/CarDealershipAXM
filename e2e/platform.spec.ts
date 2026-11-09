@@ -26,6 +26,20 @@ test("portada, navegación móvil y ausencia de desborde", async ({ page }) => {
       exact: true,
     }),
   ).toBeVisible();
+  await page
+    .getByRole("navigation", { name: "Explorar por marca" })
+    .getByRole("link", { name: "PORSCHE", exact: true })
+    .click();
+  await expect(page).toHaveURL(/\/inventario\?brand=Porsche$/);
+  await expect(page.getByLabel("Marca", { exact: true })).toHaveValue(
+    "Porsche",
+  );
+  await expect(
+    page.getByRole("heading", {
+      name: "No encontramos vehículos con estos filtros",
+    }),
+  ).toBeVisible();
+  await page.goto("/");
   await page.setViewportSize({ width: 390, height: 844 });
   await page.getByRole("button", { name: "Abrir menú" }).click();
   await expect(

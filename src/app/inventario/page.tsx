@@ -25,6 +25,10 @@ export default async function Inventory({
     getInventory(params),
     getSettings(),
   ]);
+  const brands =
+    params.brand && !result.brands.includes(params.brand)
+      ? [...result.brands, params.brand]
+      : result.brands;
   const pageHref = (page: number) => {
     const p = new URLSearchParams();
     Object.entries(params).forEach(([k, v]) => {
@@ -49,7 +53,7 @@ export default async function Inventory({
         <CatalogFilters
           key={JSON.stringify(params)}
           params={params}
-          brands={result.brands}
+          brands={brands}
         />
         <div className="catalog-main">
           {result.vehicles.some((v) => v.instagramPost) && (

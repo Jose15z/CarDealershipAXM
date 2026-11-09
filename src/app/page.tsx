@@ -141,17 +141,28 @@ export default async function Home() {
             <Search size={16} /> BUSCAR VEHÍCULO
           </button>
         </form>
-        <div
-          className="brand-strip"
-          aria-label="Pasión por las marcas automotrices"
-        >
-          <span className="mercedes">Mercedes-Benz</span>
-          <span className="bmw">BMW</span>
-          <span className="porsche">PORSCHE</span>
-          <span className="audi">Audi</span>
-          <span className="mazda">mazda</span>
-          <span>TOYOTA</span>
-        </div>
+        <nav className="brand-strip" aria-label="Explorar por marca">
+          {[
+            {
+              label: "Mercedes-Benz",
+              brand: "Mercedes Benz",
+              style: "mercedes",
+            },
+            { label: "BMW", brand: "BMW", style: "bmw" },
+            { label: "PORSCHE", brand: "Porsche", style: "porsche" },
+            { label: "Audi", brand: "Audi", style: "audi" },
+            { label: "mazda", brand: "Mazda", style: "mazda" },
+            { label: "TOYOTA", brand: "Toyota" },
+          ].map(({ label, brand, style }) => (
+            <Link
+              key={brand}
+              className={style}
+              href={{ pathname: "/inventario", query: { brand } }}
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
       </div>
       <section className="container inventory-section">
         <Reveal>

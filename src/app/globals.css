@@ -777,7 +777,7 @@ small {
   justify-content: space-around;
   gap: 32px;
   align-items: center;
-  padding: 46px 0 38px;
+  padding: 46px 6px 38px;
   border-bottom: 1px solid #292929;
   color: #7b7b7b;
   overflow: hidden;
@@ -785,6 +785,17 @@ small {
   font-size: 15px;
   letter-spacing: 0.12em;
   font-weight: 700;
+}
+.brand-strip a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+}
+.brand-strip a:hover,
+.brand-strip a:focus-visible {
+  color: #fff;
 }
 .brand-strip .bmw {
   font-size: 14px;

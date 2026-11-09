@@ -41,7 +41,7 @@ Desktop catálogo 3 columnas + filtros; tablet 2; teléfono 1 y disclosure de fi
 
 ## Contenido y confianza
 
-Precio: `$85.000.000 COP`; fechas es-CO y zona America/Bogota. Fotografía editorial ilustrativa con crédito en README y leyenda visible. Sin vehículos, reseñas, garantías, teléfonos o direcciones inventados. Beneficios editables y sin promesas de certificación. Estados de base de datos no configurada y catálogo vacío son distintos.
+Precio: `$85.000.000 COP`; fechas es-CO y zona America/Bogota. Ilustración editorial inspirada en el Audi TT con leyenda visible de imagen generada. Las fichas conservan las fotografías originales del inventario. Sin vehículos, reseñas, garantías, teléfonos o direcciones inventados. Beneficios editables y sin promesas de certificación. Estados de base de datos no configurada y catálogo vacío son distintos.
 
 Precios no anunciados se mantienen nulos y se presentan como “Consultar precio”. La carrocería puede verificarse visualmente en la fotografía original; las discrepancias de identidad impiden publicar.
 

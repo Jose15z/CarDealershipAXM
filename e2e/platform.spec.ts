@@ -22,7 +22,9 @@ test("portada, navegación móvil y ausencia de desborde", async ({ page }) => {
     "TU PRÓXIMO CARRO",
   );
   await expect(
-    page.getByText("Vehículo ilustrativo", { exact: false }),
+    page.getByText("Imagen generada · Inspirada en el Audi TT", {
+      exact: true,
+    }),
   ).toBeVisible();
   await page.setViewportSize({ width: 390, height: 844 });
   await page.getByRole("button", { name: "Abrir menú" }).click();

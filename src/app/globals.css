@@ -629,8 +629,8 @@ small {
 }
 .hero-image img {
   object-fit: cover;
-  object-position: center 55%;
-  filter: brightness(0.78);
+  object-position: right 55%;
+  filter: brightness(0.94);
   height: 100%;
   width: 100%;
 }
@@ -1729,13 +1729,10 @@ small {
     width: 13px;
   }
   .hero-image {
-    top: 180px;
+    top: auto;
     left: 0;
     bottom: 35px;
-  }
-  .hero-image img {
-    object-position: 57% 55%;
-    filter: brightness(0.8);
+    height: clamp(265px, 62vw, 365px);
   }
   .hero:before {
     background: linear-gradient(

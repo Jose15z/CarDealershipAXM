@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     siteName: "LA SUBASTA AXM",
     images: [
       {
-        url: "/images/hero-porsche.jpg",
-        width: 2400,
-        height: 1600,
-        alt: "Imagen editorial de un automóvil premium",
+        url: "/images/hero-audi-tt.jpg",
+        width: 1672,
+        height: 941,
+        alt: "Ilustración de un Audi TT plateado con franjas negras",
       },
     ],
   },

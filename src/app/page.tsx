@@ -56,11 +56,11 @@ export default async function Home() {
       <section className="hero">
         <div className="hero-image">
           <Image
-            src="/images/hero-porsche.jpg"
-            alt="Porsche en carretera, fotografía editorial ilustrativa"
+            src="/images/hero-audi-tt.jpg"
+            alt="Ilustración de un Audi TT plateado con franjas negras al atardecer"
             fill
-            priority
-            sizes="100vw"
+            preload
+            sizes="(max-width: 960px) 100vw, (max-width: 1150px) 88vw, 76vw"
           />
         </div>
         <div className="container hero-content">
@@ -96,8 +96,7 @@ export default async function Home() {
           </span>
         </div>
         <span className="hero-caption">
-          Fotografía editorial · Vehículo ilustrativo, no pertenece al
-          inventario
+          Imagen generada · Inspirada en el Audi TT
         </span>
       </section>
       <div className="container">
@@ -249,43 +248,43 @@ export default async function Home() {
               @lasubastaaxm <ArrowUpRight size={15} />
             </a>
           </div>
-          {posts.length ? (
+          {posts.some((post) => post.vehicle?.images.length) ? (
             <>
               <div className="vehicles-grid">
-                {posts.slice(0, 3).map(
-                  (p) =>
-                    p.vehicle && (
-                      <a
-                        key={p.id}
-                        className="social-post"
-                        href={p.permalink}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <Image
-                          src={
-                            p.vehicle.images[0]?.url ||
-                            "/images/hero-porsche.jpg"
-                          }
-                          alt={`Publicación original: ${p.vehicle.brand} ${p.vehicle.model}`}
-                          fill
-                          sizes="(max-width:700px) 45vw, 30vw"
-                        />
-                        <Instagram className="post-icon" />
-                        <div className="post-caption">
-                          <div>
-                            <strong>
-                              {p.vehicle.brand} {p.vehicle.model}
-                            </strong>
-                            <span>
-                              {p.vehicle.year} · {money(p.vehicle.price)}
-                            </span>
+                {posts
+                  .filter((post) => post.vehicle?.images.length)
+                  .slice(0, 3)
+                  .map(
+                    (p) =>
+                      p.vehicle?.images[0] && (
+                        <a
+                          key={p.id}
+                          className="social-post"
+                          href={p.permalink}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <Image
+                            src={p.vehicle.images[0].url}
+                            alt={`Publicación original: ${p.vehicle.brand} ${p.vehicle.model}`}
+                            fill
+                            sizes="(max-width:700px) 45vw, 30vw"
+                          />
+                          <Instagram className="post-icon" />
+                          <div className="post-caption">
+                            <div>
+                              <strong>
+                                {p.vehicle.brand} {p.vehicle.model}
+                              </strong>
+                              <span>
+                                {p.vehicle.year} · {money(p.vehicle.price)}
+                              </span>
+                            </div>
+                            <ArrowUpRight size={21} />
                           </div>
-                          <ArrowUpRight size={21} />
-                        </div>
-                      </a>
-                    ),
-                )}
+                        </a>
+                      ),
+                  )}
               </div>
               <p className="instagram-disclaimer">
                 Publicaciones originales de LA SUBASTA AXM. Precios anunciados

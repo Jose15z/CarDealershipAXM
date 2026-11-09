@@ -33,7 +33,7 @@ El importador idempotente crea registros independientes **DRAFT**, `verified=fal
 
 La sección de Instagram presenta publicaciones originales y advierte que disponibilidad y precios actuales requieren confirmación. Por solicitud explícita del propietario se revisaron y publicaron 22 anuncios sin aviso de vendido. Dos fichas permanecen en borrador: Mercedes C200 2016 por combustible no verificado y Hilux GR por discrepancia entre texto e imagen. Los anuncios sin precio publicado conservan `null` y muestran “Consultar precio”. Los precios mostrados en imágenes antiguas son los anunciados en su fecha, no una oferta actual confirmada. Para repetir la publicación de los IDs revisados: `PUBLISH_OBSERVED_CONFIRM=PUBLISH_REVIEWED_INSTAGRAM_LISTINGS npx tsx scripts/publish-observed.ts docs/instagram-observed.json`. Este paso requiere autorización explícita del propietario y no revive registros vendidos o archivados.
 
-La portada usa una fotografía editorial ilustrativa de un Porsche de Unsplash, identificada en pantalla; no es parte del inventario. Fuente: https://images.unsplash.com/photo-1503376780353-7e6692767b70 (asset `images.unsplash.com/photo-1503376780353-7e6692767b70`). Fuentes autoalojadas Manrope y Barlow Condensed bajo SIL OFL; licencias en `public/fonts/`.
+La portada muestra una ilustración generada a partir de una referencia del Audi TT del concesionario. Las fichas del inventario usan las fotografías originales de cada vehículo. Fuentes autoalojadas Manrope y Barlow Condensed bajo SIL OFL; licencias en `public/fonts/`.
 
 ## Crear un administrador autorizado
 

@@ -1,0 +1,101 @@
+{
+  "policy": "Valores de terceros sin ajuste estimado, separados del precio del concesionario. No son ofertas de LA SUBASTA AXM.",
+  "references": [
+    {
+      "postId": "DZOAl7cEQt4",
+      "price": 105900000,
+      "url": "https://carro.mercadolibre.com.co/MCO-4575126798-toyota-yaris-cross-15-hev-xs-_JM",
+      "label": "MercadoLibre · Dancars: Yaris Cross HEV XS 2023, 53.400 km, Medellín. La versión XS del comparable no está confirmada para esta unidad",
+      "asOf": "anuncio consultado el 7 de noviembre de 2026",
+      "checkedAt": "2026-11-07T14:10:46.543531Z"
+    },
+    {
+      "postId": "DZK3ouJDrf3",
+      "price": 170000000,
+      "url": "https://www.vendetunave.co/vehiculos/carrosycamionetas/toyota/hilux/toyota-hilux-srv-2017-28cc-diesel-unico-dueo-140000km-136994",
+      "label": "VendeTuNave · Hilux SRV 2017, 2.8 diésel automática, 140.000 km, Popayán",
+      "asOf": "anuncio consultado el 7 de noviembre de 2026",
+      "checkedAt": "2026-11-07T14:10:46.543531Z"
+    },
+    {
+      "postId": "DZIr9zwGN12",
+      "price": 215000000,
+      "url": "https://carro.mercadolibre.com.co/MCO-4500472590-toyota-hilux-40-v6-srx-gasolina-4x4-at-_JM",
+      "label": "MercadoLibre · Hilux SRX 2023, V6 4.0 gasolina 4x4 automática, 59.000 km, Bogotá",
+      "asOf": "anuncio consultado el 7 de noviembre de 2026",
+      "checkedAt": "2026-11-07T14:10:46.543531Z"
+    },
+    {
+      "postId": "DY8Cn0dEQlS",
+      "price": 186900000,
+      "url": "https://carro.mercadolibre.com.co/MCO-2207728781-ford-ranger-20-xlt-4x4-_JM",
+      "label": "MercadoLibre · Ranger XLT 2024, 2.0 diésel 4x4 automática, 28.500 km, Medellín. Kilometraje inferior al de esta unidad",
+      "asOf": "anuncio consultado el 7 de noviembre de 2026",
+      "checkedAt": "2026-11-07T14:10:46.543531Z"
+    },
+    {
+      "postId": "DY7XRQmEYOQ",
+      "price": 213400000,
+      "url": "https://www.autocosmos.com.co/guiadeprecios/toyota/fj-cruiser/2022",
+      "label": "Autocosmos · Guía Fasecolda: FJ Cruiser 2022, 4.0 V6 AT 4x4; valor de guía sin ajuste individual por kilometraje o estado",
+      "asOf": "enero de 2026",
+      "checkedAt": "2026-11-07T14:10:46.543531Z"
+    },
+    {
+      "postId": "DY2yUP7EUdb",
+      "price": 78800000,
+      "url": "https://carro.mercadolibre.com.co/MCO-4516325624-mercedes-benz-gla200-at-segundo-dueno-en-perfecto-estado-_JM",
+      "label": "MercadoLibre · Lugo+: GLA 200 2018, 1.6 automática, 49.000 km, Armenia",
+      "asOf": "anuncio consultado el 7 de noviembre de 2026",
+      "checkedAt": "2026-11-07T14:10:46.543531Z"
+    },
+    {
+      "postId": "DY2xFeUERwo",
+      "price": 215800000,
+      "url": "https://www.autocosmos.com.co/guiadeprecios/toyota/prado-lc-150/2020",
+      "label": "Autocosmos · Guía Fasecolda: Prado TX Sumo 2020, TP 2700 cc 3P 7AB; valor de guía sin ajuste individual",
+      "asOf": "enero de 2026",
+      "checkedAt": "2026-11-07T14:10:46.543531Z"
+    },
+    {
+      "postId": "DY2wD0MkYjf",
+      "price": 64400000,
+      "url": "https://www.autocosmos.com.co/guiadeprecios/toyota/prado-lc-90/2006",
+      "label": "Autocosmos · Guía Fasecolda: Prado VX MT 2006, 3400 cc 5P; referencia comparable a la denominación VXM del anuncio, sin ajuste individual",
+      "asOf": "enero de 2026",
+      "checkedAt": "2026-11-07T14:10:46.543531Z"
+    },
+    {
+      "postId": "DYzvDNLEXz8",
+      "price": 124400000,
+      "url": "https://www.autocosmos.com.co/guiadeprecios/chevrolet/blazer/2020",
+      "label": "Autocosmos · Guía Fasecolda: Blazer RS 2020, TP 3600 cc 4x4; valor de guía sin ajuste individual",
+      "asOf": "enero de 2026",
+      "checkedAt": "2026-11-07T14:10:46.543531Z"
+    },
+    {
+      "postId": "DYpO9TNEXc_",
+      "price": 68600000,
+      "url": "https://www.autocosmos.com.co/guiadeprecios/mazda/3-3/2020",
+      "label": "Autocosmos · Guía Fasecolda: Mazda 3 Touring 2020, TP 2000 cc 6AB; valor de guía sin ajuste individual",
+      "asOf": "enero de 2026",
+      "checkedAt": "2026-11-07T14:10:46.543531Z"
+    },
+    {
+      "postId": "DYX16CAEaLw",
+      "price": 117000000,
+      "url": "https://www.vendetunave.co/vehiculos/carrosycamionetas/mercedes-benz/clase-c/mercedes-benz-c200-exclusive-tp-20-147330",
+      "label": "VendeTuNave · Skalautos: C200 Exclusive 2021, 2.0 automática, 63.000 km, Tunja",
+      "asOf": "anuncio consultado el 7 de noviembre de 2026",
+      "checkedAt": "2026-11-07T14:10:46.543531Z"
+    },
+    {
+      "postId": "DYClKodjgKo",
+      "price": 303100000,
+      "url": "https://www.autocosmos.com.co/guiadeprecios/toyota/prado-lc-150/2022",
+      "label": "Autocosmos · Guía Fasecolda: Prado TX-L 2022, TP 2800 cc 5P diésel EURO IV; valor de guía sin ajuste individual",
+      "asOf": "enero de 2026",
+      "checkedAt": "2026-11-07T14:10:46.543531Z"
+    }
+  ]
+}

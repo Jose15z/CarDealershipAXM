@@ -1,0 +1,253 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CLIENT
+  ADMIN
+}
+
+enum VehicleStatus {
+  DRAFT
+  DISPONIBLE
+  RESERVADO
+  VENDIDO
+  ARCHIVADO
+}
+
+enum InquiryStatus {
+  NUEVA
+  EN_CONTACTO
+  CERRADA
+}
+
+enum AppointmentStatus {
+  PENDIENTE
+  CONFIRMADA
+  CANCELADA
+  COMPLETADA
+}
+
+enum InstagramPostStatus {
+  PENDING
+  REVIEWED
+  MANUAL_UPDATE_REQUIRED
+}
+
+model User {
+  id           String        @id @default(cuid())
+  name         String
+  email        String        @unique
+  passwordHash String
+  phone        String?
+  role         Role          @default(CLIENT)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  sessions     Session[]
+  favorites    Favorite[]
+  inquiries    Inquiry[]
+  appointments Appointment[]
+  sales        Sale[]
+  auditLogs    AuditLog[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  tokenHash String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([expiresAt])
+}
+
+model Vehicle {
+  id            String           @id @default(cuid())
+  slug          String           @unique
+  reference     String?          @unique
+  brand         String
+  model         String
+  version       String?
+  year          Int?
+  price         Decimal?         @db.Decimal(15, 0)
+  referencePrice Decimal? @db.Decimal(15, 0)
+  referencePriceUrl String?
+  referencePriceLabel String?
+  referencePriceAsOf String?
+  referencePriceCheckedAt DateTime?
+  catalogPrice Decimal? @db.Decimal(15, 0)
+  mileage       Int?
+  transmission  String?
+  fuel          String?
+  bodyType      String?
+  displacement  String?
+  color         String?
+  partialPlate  String?
+  city          String           @default("Armenia, Quindío")
+  description   String           @default("")
+  status        VehicleStatus    @default(DRAFT)
+  featured      Boolean          @default(false)
+  verified      Boolean          @default(false)
+  revision      Int              @default(0)
+  publishedAt   DateTime?
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+  images        VehicleImage[]
+  features      VehicleFeature[]
+  favorites     Favorite[]
+  inquiries     Inquiry[]
+  appointments  Appointment[]
+  sale          Sale?
+  instagramPost InstagramPost?
+
+  @@index([status, publishedAt])
+  @@index([brand, model, year])
+  @@index([price])
+  @@index([catalogPrice])
+  @@index([mileage])
+}
+
+model VehicleImage {
+  id        String  @id @default(cuid())
+  vehicleId String
+  vehicle   Vehicle @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+  url       String
+  alt       String
+  position  Int
+
+  @@unique([vehicleId, position])
+}
+
+model VehicleFeature {
+  id        String  @id @default(cuid())
+  vehicleId String
+  vehicle   Vehicle @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+  category  String
+  name      String
+
+  @@unique([vehicleId, category, name])
+}
+
+model Favorite {
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  vehicleId String
+  vehicle   Vehicle  @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@id([userId, vehicleId])
+}
+
+model Inquiry {
+  id        String        @id @default(cuid())
+  userId    String?
+  user      User?         @relation(fields: [userId], references: [id], onDelete: SetNull)
+  vehicleId String?
+  vehicle   Vehicle?      @relation(fields: [vehicleId], references: [id], onDelete: SetNull)
+  name      String
+  email     String
+  phone     String
+  message   String
+  type      String        @default("INFORMACION")
+  consent   Boolean
+  status    InquiryStatus @default(NUEVA)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@index([status, createdAt])
+}
+
+model Appointment {
+  id          String            @id @default(cuid())
+  userId      String
+  user        User              @relation(fields: [userId], references: [id], onDelete: Restrict)
+  vehicleId   String
+  vehicle     Vehicle           @relation(fields: [vehicleId], references: [id], onDelete: Restrict)
+  scheduledAt DateTime
+  note        String            @default("")
+  status      AppointmentStatus @default(PENDIENTE)
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@index([scheduledAt, status])
+}
+
+model Sale {
+  id             String   @id @default(cuid())
+  vehicleId      String   @unique
+  vehicle        Vehicle  @relation(fields: [vehicleId], references: [id], onDelete: Restrict)
+  confirmedById  String
+  confirmedBy    User     @relation(fields: [confirmedById], references: [id], onDelete: Restrict)
+  amount         Decimal  @db.Decimal(15, 0)
+  idempotencyKey String   @unique
+  soldAt         DateTime @default(now())
+}
+
+model InstagramPost {
+  id          String              @id @default(cuid())
+  externalId  String              @unique
+  permalink   String
+  caption     String              @default("")
+  media       Json
+  vehicleId   String?             @unique
+  vehicle     Vehicle?            @relation(fields: [vehicleId], references: [id], onDelete: SetNull)
+  status      InstagramPostStatus @default(PENDING)
+  publishedAt DateTime?
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+}
+
+model InstagramSyncLog {
+  id        String   @id @default(cuid())
+  status    String
+  imported  Int      @default(0)
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String
+  actor     User     @relation(fields: [actorId], references: [id], onDelete: Restrict)
+  action    String
+  entityId  String
+  data      Json?
+  createdAt DateTime @default(now())
+
+  @@index([entityId, createdAt])
+}
+
+model DealershipSettings {
+  id            String   @id @default("main")
+  name          String   @default("LA SUBASTA AXM")
+  city          String   @default("Armenia, Quindío, Colombia")
+  address       String?
+  phone         String?
+  whatsapp      String?
+  email         String?
+  instagramUrl  String   @default("https://www.instagram.com/lasubastaaxm/")
+  openingHours  String?
+  benefits      Json     @default("[]")
+  privacyPolicy String?
+  terms         String?
+  updatedAt     DateTime @updatedAt
+}
+
+model RateLimit {
+  key     String   @id
+  count   Int      @default(1)
+  resetAt DateTime
+
+  @@index([resetAt])
+}
+
+model IntegrationLock {
+  key       String   @id
+  expiresAt DateTime
+}

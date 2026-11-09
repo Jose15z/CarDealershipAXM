@@ -1,0 +1,8 @@
+node_modules
+.next
+.next-e2e
+package-lock.json
+public
+playwright-report
+test-results
+premium-audit.json
